@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/jquery/jquery.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+ $.post("php/select-grupos.php", function(projetos){
+    projetos = JSON.parse(projetos);
+
+    /*$.each(projetos[0], function(i, titulo, id){
+    alert(projetos[0][i].titulo);
+    });*/
+
+    // $.each(projetos[1], function(i, titulo, id){
+    // alert(projetos[1][i].titulo);
+    // });
+
+    $.each(projetos[2], function(i, id, id_proj){
+      alert(projetos[2][i].id);
+    });
+  });
+</script>

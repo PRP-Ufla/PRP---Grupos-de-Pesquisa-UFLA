@@ -1,0 +1,11 @@
+# um comentário - isto é ignorado
+# sem arquivos terminados em .a
+*.a
+# mas rastreie lib.a, mesmo que você tenha ignorado arquivos terminados em .a acima
+!lib.a
+# apenas ignore o arquivo TODO na raiz, não o subdiretório TODO
+/TODO
+# ignore todos os arquivos no diretório build/
+build/
+# ignore doc/notes.txt mas, não ignore doc/server/arch.txt
+doc/*.txt

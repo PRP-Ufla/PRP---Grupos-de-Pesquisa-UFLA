@@ -1,0 +1,43 @@
+{"edges":[{"source":"1","target":"27","id":"1"}
+],
+"nodes":[{"label":"Acre (AC)","x":18,"y":9,"id":"1","color":"rgb(255, 0, 67)","size":40},
+{"label":"Alagoas (AL)","x":25,"y":12,"id":"2","color":"rgb(255, 0, 67)","size":40},
+{"label":"Amapá (AP)","x":22,"y":-2,"id":"3","color":"rgb(255, 0, 67)","size":40},
+{"label":"Amazonas (AM)","x":19,"y":0,"id":"4","color":"rgb(255, 0, 67)","size":40},
+{"label":"Bahia (BA)","x":23,"y":16,"id":"5","color":"rgb(255, 0, 67)","size":40},
+{"label":"Ceará (CE)","x":24,"y":2,"id":"6","color":"rgb(255, 0, 67)","size":40},
+{"label":"Distrito Federal (DF)","x":23,"y":16,"id":"7","color":"rgb(255, 0, 67)","size":40},
+{"label":"Espírito Santo (ES)","x":24,"y":20,"id":"8","color":"rgb(255, 0, 67)","size":40},
+{"label":"Goiás (GO)","x":22,"y":17,"id":"9","color":"rgb(255, 0, 67)","size":40},
+{"label":"Maranhão (MA)","x":23,"y":4,"id":"10","color":"rgb(255, 0, 67)","size":40},
+{"label":"Mato Grosso (MT)","x":21,"y":16,"id":"11","color":"rgb(255, 0, 67)","size":40},
+{"label":"Mato Grosso do Sul (MS)","x":22,"y":24,"id":"12","color":"rgb(255, 0, 67)","size":40},
+{"label":"Minas Gerais (MG)","x":23,"y":19,"id":"13","color":"rgb(255, 0, 67)","size":40},
+{"label":"Pará (PA)","x":22,"y":4,"id":"14","color":"rgb(255, 0, 67)","size":40},
+{"label":"Paraíba (PB)","x":25,"y":8,"id":"15","color":"rgb(255, 0, 67)","size":40},
+{"label":"Paraná (PR)","x":22,"y":24,"id":"16","color":"rgb(255, 0, 67)","size":40},
+{"label":"Pernambuco (PE)","x":25,"y":12,"id":"17","color":"rgb(255, 0, 67)","size":40},
+{"label":"Piauí (PI)","x":24,"y":4,"id":"18","color":"rgb(255, 0, 67)","size":40},
+{"label":"Rio de Janeiro (RJ)","x":24,"y":23,"id":"19","color":"rgb(255, 0, 67)","size":40},
+{"label":"Rio Grande do Norte (RN)","x":25,"y":3,"id":"20","color":"rgb(255, 0, 67)","size":40},
+{"label":"Rio Grande do Sul (RS)","x":21,"y":30,"id":"21","color":"rgb(255, 0, 67)","size":40},
+{"label":"Rondônia (RO)","x":20,"y":14,"id":"22","color":"rgb(255, 0, 67)","size":40},
+{"label":"Roraima (RR)","x":20,"y":-2,"id":"23","color":"rgb(255, 0, 67)","size":40},
+{"label":"Santa Catarina (SC)","x":22,"y":28,"id":"24","color":"rgb(255, 0, 67)","size":40},
+{"label":"São Paulo (SP)","x":22,"y":24,"id":"25","color":"rgb(255, 0, 67)","size":40},
+{"label":"Sergipe (SE)","x":25,"y":14,"id":"26","color":"rgb(255, 0, 67)","size":40},
+{"label":"Tocantins (TO)","x":23,"y":10,"id":"27","color":"rgb(255, 0, 67)","size":40}]}
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
