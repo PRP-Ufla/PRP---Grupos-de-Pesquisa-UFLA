@@ -1,0 +1,128 @@
+<!-- 
+	Busca membros de projeto de pesquisa e os liga a outros membros
+que particapam dos mesmos projetos que os mesmos.
+Foi baseado no exemplo de grafo com filtros que veio com a API
+SIGMA.js, qualquer dúvida é só buscar a documentação da mesma
+no github.
+
+	Basicamente o que temos nesse arquivo html são informações sobre
+um grafo de pesquisadores gerado por uma busca na base de dados do sistema
+SIGAA. No caso cada vértice é um pesquisador, ao clicar em cima desses vértices
+são exibidas as informações. Temos também filtros que são próprios da API e
+para adicionar um filtro novo a página, basta aqui se inserir uma select e o
+campro que for escolhido para o filtro estar presente na SQL buscada.
+
+	Mais informações no arquivo "js/buscando.js".
+-->
+
+<head>
+	<title>PRP - Membros</title>
+	<!-- START SIGMA IMPORTS -->
+	<script src="../src/sigma.core.js"></script>
+	<script src="../src/conrad.js"></script>
+	<script src="../src/utils/sigma.utils.js"></script>
+	<script src="../src/utils/sigma.polyfills.js"></script>
+	<script src="../src/sigma.settings.js"></script>
+	<script src="../src/classes/sigma.classes.dispatcher.js"></script>
+	<script src="../src/classes/sigma.classes.configurable.js"></script>
+	<script src="../src/classes/sigma.classes.graph.js"></script>
+	<script src="../src/classes/sigma.classes.camera.js"></script>
+	<script src="../src/classes/sigma.classes.quad.js"></script>
+	<script src="../src/classes/sigma.classes.edgequad.js"></script>
+	<script src="../src/captors/sigma.captors.mouse.js"></script>
+	<script src="../src/captors/sigma.captors.touch.js"></script>
+	<script src="../src/renderers/sigma.renderers.canvas.js"></script>
+	<script src="../src/renderers/sigma.renderers.webgl.js"></script>
+	<script src="../src/renderers/sigma.renderers.svg.js"></script>
+	<script src="../src/renderers/sigma.renderers.def.js"></script>
+	<script src="../src/renderers/webgl/sigma.webgl.nodes.def.js"></script>
+	<script src="../src/renderers/webgl/sigma.webgl.nodes.fast.js"></script>
+	<script src="../src/renderers/webgl/sigma.webgl.edges.def.js"></script>
+	<script src="../src/renderers/webgl/sigma.webgl.edges.fast.js"></script>
+	<script src="../src/renderers/webgl/sigma.webgl.edges.arrow.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.labels.def.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.hovers.def.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.nodes.def.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.edges.def.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.edges.curve.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.edgehovers.def.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.edgehovers.curve.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+	<script src="../src/renderers/canvas/sigma.canvas.extremities.def.js"></script>
+	<script src="../src/renderers/svg/sigma.svg.utils.js"></script>
+	<script src="../src/renderers/svg/sigma.svg.nodes.def.js"></script>
+	<script src="../src/renderers/svg/sigma.svg.edges.def.js"></script>
+	<script src="../src/renderers/svg/sigma.svg.edges.curve.js"></script>
+	<script src="../src/renderers/svg/sigma.svg.labels.def.js"></script>
+	<script src="../src/renderers/svg/sigma.svg.hovers.def.js"></script>
+	<script src="../src/middlewares/sigma.middlewares.rescale.js"></script>
+	<script src="../src/middlewares/sigma.middlewares.copy.js"></script>
+	<script src="../src/misc/sigma.misc.animation.js"></script>
+	<script src="../src/misc/sigma.misc.bindEvents.js"></script>
+	<script src="../src/misc/sigma.misc.bindDOMEvents.js"></script>
+	<script src="../src/misc/sigma.misc.drawHovers.js"></script>
+	<!-- END SIGMA IMPORTS -->
+	<script src="../plugins/sigma.parsers.gexf/gexf-parser.js"></script>
+	<script src="../plugins/sigma.parsers.gexf/sigma.parsers.gexf.js"></script>
+	<script src="../plugins/sigma.plugins.filter/sigma.plugins.filter.js"></script>
+  	<script src="../plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
+
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script type="text/javascript" src="../js/jquery/jquery.js"></script>
+  	<script type="text/javascript" src="js/buscando.js"></script>
+</head>
+<body>
+
+	<div id="principal">
+	    <div id="cabecalho">
+	  		<input type="text" id="nome" value="">Digite o nome de um pesquisador...
+	     	<input type="button" id="buscar-membro" value="Buscar">
+	    </div>
+	    <div id="conteudo">
+	      <div id="info-node">
+	        <div><h2>Informações</h2></div>
+	        <div id="nome-info"></div>
+	        <div id="informacoes"></div>
+	      </div>
+
+	      <div id="container">
+	        <div id="graph-container" class="margin"></div>
+	        <div id="degree">
+	          <h3>Conexões <span id="min-degree-val">0</span></h3>
+	          0 <input id="min-degree" type="range" min="0" max="0" value="10"> <span id="max-degree-value">0</span><br>
+	        </div>
+
+	        <div id="control-pane">
+	            <div id="filters">
+	              <select id="departamento">
+	                <option value="" selected>DEPARTAMENTO</option>
+	              </select>
+	              <select id="sexo">
+	                <option value="" selected>SEXO</option>
+	              </select>
+	              <select id="grpPesquisa">
+	                <option value="" selected>GRUPO DE PESQUISA</option>
+	              </select>
+	              <select id="nomePrinc">
+	                <option value="" selected>NOMES EXIBIDOS</option>
+	              </select>
+	            </div>
+	            <div id="button-reset">
+	              <button id="reset-btn">Reset</button>
+	              <button id="export-btn">Export</button>
+	            </div>  
+	          <!-- </div> -->
+	          <div id="dump" class="hidden"></div>
+	        </div>
+
+	      </div>
+	    </div>
+	</div>
+</body>
+
+

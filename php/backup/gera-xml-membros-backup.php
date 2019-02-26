@@ -7,8 +7,6 @@
 	}
 
 	require_once 'db/DBUtils.class.php';
-
-	//Class position - para entender as funções e atributos, ler o arquivo "position.class.php"
 	require_once 'position.class.php';
 	$db = new DBUtils();
 	$position = new position();
@@ -121,17 +119,10 @@
 		$y = $position->getCenter();
 
 		foreach ($members as $member) {
-
-			/*As varias r,g,b serão utilizadas para gerar as cores do grafo,
-			no caso elas irão gerar cores randomicas, isso pode ser alterado futuramente
-			mudando os parâmetros para as cores serem geradas*/
 			
-			// $r = 194;
-			// $g = 194;
-			// $b = 214;
-			$r = rand(100,999);
-			$g = rand(100,999);
-			$b = rand(100,999);
+			$r = 194;
+			$g = 194;
+			$b = 214;
 			$tam = $member[2];
 
 			if($quadrante <= 4){
@@ -155,11 +146,11 @@
 			//a cor do mesmo será diferente dos demais
 			$nome_principal = search_name($member[1]);
 
-			// if($nome_principal == true){
-			// 	$r = 133;
-			// 	$g = 133;
-			// 	$b = 173;
-			// }
+			if($nome_principal == true){
+				$r = 133;
+				$g = 133;
+				$b = 173;
+			}
 
 			$departamento = $member[3];
 

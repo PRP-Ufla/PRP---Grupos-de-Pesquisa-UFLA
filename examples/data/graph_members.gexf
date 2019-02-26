@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gexf xmlns='http://www.gexf.net/1.2draft' version='1.2' xmlns:viz='http://www.gexf.net/1.2draft/viz' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd'>
+<meta lastmodifieddate='2014-06-26'>
+    <creator>Gephi 0.8.1</creator>
+    <description></description>
+  </meta>
+<graph defaultedgetype='directed' mode='static'>
+    <attributes class='node' mode='static'>
+    <attribute id='id' title='id' type='integer'></attribute>
+    <attribute id='nome' title='nome' type='string'></attribute>
+    <attribute id='departamento' title='departamento' type='string'></attribute>
+    <attribute id='sexo' title='sexo' type='string'></attribute>
+    <attribute id='grpPesquisa' title='grpPesquisa' type='array'></attribute>
+    <attribute id='nomePrinc' title='nomePrinc' type='string'></attribute>
+    </attributes>
+    <nodes>
+<node id='132688' label='CAROLINE JUNQUEIRA SARTORI'>
+	<attvalues>
+			<attvalue for='id' value='132688'></attvalue>
+			<attvalue for='nome' value='CAROLINE JUNQUEIRA SARTORI'></attvalue>
+			<attvalue for='departamento' value='SEM DEPARTAMENTO'></attvalue>
+			<attvalue for='sexo' value='M'></attvalue><attvalue for='nomePrinc' value='PRINCIPAIS'></attvalue></attvalues>
+<viz:size value='2'></viz:size>
+<viz:position x='0' y='3' z='0.0'></viz:position>
+<viz:color r='941' g='359' b='438'></viz:color>
+</node>
+<node id='1034517' label='FABIO AKIRA MORI'>
+	<attvalues>
+			<attvalue for='id' value='1034517'></attvalue>
+			<attvalue for='nome' value='FABIO AKIRA MORI'></attvalue>
+			<attvalue for='departamento' value='DCF'></attvalue>
+			<attvalue for='sexo' value='M'></attvalue><attvalue for='nomePrinc' value='SECUNDÁRIOS'></attvalue></attvalues>
+<viz:size value='2'></viz:size>
+<viz:position x='3' y='0' z='0.0'></viz:position>
+<viz:color r='346' g='694' b='483'></viz:color>
+</node>
+<node id='1033930' label='LOURIVAL MARIN MENDES'>
+	<attvalues>
+			<attvalue for='id' value='1033930'></attvalue>
+			<attvalue for='nome' value='LOURIVAL MARIN MENDES'></attvalue>
+			<attvalue for='departamento' value='DCF'></attvalue>
+			<attvalue for='sexo' value='M'></attvalue><attvalue for='nomePrinc' value='SECUNDÁRIOS'></attvalue></attvalues>
+<viz:size value='1'></viz:size>
+<viz:position x='6' y='-3' z='0.0'></viz:position>
+<viz:color r='313' g='737' b='347'></viz:color>
+</node>
+</nodes>
+<edges>
+	<edge source='132688' target='1034517'>
+			<attvalues></attvalues>
+		</edge>
+	<edge source='132688' target='1033930'>
+			<attvalues></attvalues>
+		</edge>
+	<edge source='132688' target='1034517'>
+			<attvalues></attvalues>
+		</edge>
+	<edge source='1033930' target='1034517'>
+			<attvalues></attvalues>
+		</edge>
+</edges>
+	  </graph>
+	</gexf>

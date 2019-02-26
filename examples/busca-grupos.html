@@ -1,0 +1,106 @@
+<!-- Basicamente a ideia desse arquivo html é a mesma do outro, busca-membros.html.
+Porém, aqui são buscados os grupos de pesquisa chamados aqui de projetos, e no caso,
+os mesmos serão os vértices do grafo, e projetos que possuírem membros em comum com
+o projeto principal pesquisado serão interligados ao mesmo
+Vale ressaltar que a página segue o mesmo exemplo da outra acima citada, ou seja, ela segue
+o exemplo da página filters.html que já vem implementada na API Sigma.js-->
+
+<head>
+  <title>PRP - Grupos de Pesquisa</title>
+  <!-- START SIGMA IMPORTS -->
+  <script src="../src/sigma.core.js"></script>
+  <script src="../src/conrad.js"></script>
+  <script src="../src/utils/sigma.utils.js"></script>
+  <script src="../src/utils/sigma.polyfills.js"></script>
+  <script src="../src/sigma.settings.js"></script>
+  <script src="../src/classes/sigma.classes.dispatcher.js"></script>
+  <script src="../src/classes/sigma.classes.configurable.js"></script>
+  <script src="../src/classes/sigma.classes.graph.js"></script>
+  <script src="../src/classes/sigma.classes.camera.js"></script>
+  <script src="../src/classes/sigma.classes.quad.js"></script>
+  <script src="../src/classes/sigma.classes.edgequad.js"></script>
+  <script src="../src/captors/sigma.captors.mouse.js"></script>
+  <script src="../src/captors/sigma.captors.touch.js"></script>
+  <script src="../src/renderers/sigma.renderers.canvas.js"></script>
+  <script src="../src/renderers/sigma.renderers.webgl.js"></script>
+  <script src="../src/renderers/sigma.renderers.svg.js"></script>
+  <script src="../src/renderers/sigma.renderers.def.js"></script>
+  <script src="../src/renderers/webgl/sigma.webgl.nodes.def.js"></script>
+  <script src="../src/renderers/webgl/sigma.webgl.nodes.fast.js"></script>
+  <script src="../src/renderers/webgl/sigma.webgl.edges.def.js"></script>
+  <script src="../src/renderers/webgl/sigma.webgl.edges.fast.js"></script>
+  <script src="../src/renderers/webgl/sigma.webgl.edges.arrow.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.labels.def.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.hovers.def.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.nodes.def.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.edges.def.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.edges.curve.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.edgehovers.def.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.edgehovers.curve.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+  <script src="../src/renderers/canvas/sigma.canvas.extremities.def.js"></script>
+  <script src="../src/renderers/svg/sigma.svg.utils.js"></script>
+  <script src="../src/renderers/svg/sigma.svg.nodes.def.js"></script>
+  <script src="../src/renderers/svg/sigma.svg.edges.def.js"></script>
+  <script src="../src/renderers/svg/sigma.svg.edges.curve.js"></script>
+  <script src="../src/renderers/svg/sigma.svg.labels.def.js"></script>
+  <script src="../src/renderers/svg/sigma.svg.hovers.def.js"></script>
+  <script src="../src/middlewares/sigma.middlewares.rescale.js"></script>
+  <script src="../src/middlewares/sigma.middlewares.copy.js"></script>
+  <script src="../src/misc/sigma.misc.animation.js"></script>
+  <script src="../src/misc/sigma.misc.bindEvents.js"></script>
+  <script src="../src/misc/sigma.misc.bindDOMEvents.js"></script>
+  <script src="../src/misc/sigma.misc.drawHovers.js"></script>
+  <!-- END SIGMA IMPORTS -->
+  <script src="../plugins/sigma.parsers.gexf/gexf-parser.js"></script>
+  <script src="../plugins/sigma.parsers.gexf/sigma.parsers.gexf.js"></script>
+  <script src="../plugins/sigma.plugins.filter/sigma.plugins.filter.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
+  <script src="../plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js"></script>
+  <script type="text/javascript" src="../js/jquery/jquery.js"></script>
+  <script type="text/javascript" src="js/buscando-projetos.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <div id="principal">
+    <div id="cabecalho">
+      <input type="text" id="nome-proj">
+      <input type="button" id="buscar" value="Buscar">
+    </div>
+    <div id="conteudo">
+
+      <div id="info-node">
+        <div><h2>Informações</h2></div>
+        <div id="nome-info"></div>
+        <div id="informacoes"></div>
+      </div>
+
+      <div id="container">
+        <div id="graph-container"></div>
+        <div id="degree">
+          <h3>Conexões <span id="min-degree-val">0</span></h3>
+          0 <input id="min-degree" type="range" min="0" max="0" value="10"> <span id="max-degree-value">0</span><br>
+        </div>
+        <div id="control-pane">          
+          <div id="filters">
+            <select id="node-category">
+              <option value="" selected>Criar filtro</option>
+            </select>
+          </div>
+          <div id="button-reset">
+            <button id="reset-btn">Reset filters</button>
+            <button id="export-btn">Export</button>
+          </div>
+          <div id="dump" class="hidden"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+  

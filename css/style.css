@@ -7,51 +7,67 @@ body {
 }
 
 /*--------------Grafo---------------------*/
+#cabecalho {
+  top: 4%;
+  width: 100%;
+  height: 10%;
+  position: absolute;
+}
+
+#nome, #nome-proj {
+  height: 50%;
+  width: 80%;
+  font-family: "Courier New", Courier, Monospace;
+  font-size: 26px;
+}
+
+#buscar-membro, #buscar {
+  width: 20%;
+  right: 0;
+  height: 50%;
+  position: absolute;
+}
+
 #graph-container {
-  top: 10%;
-  bottom: 10%;
+  top: 17%;
+  bottom: 20%;
   left: 0;
   right: 0;
   position: absolute;
   background-color: #FAFAFA;
 }
+
 #control-pane {
-  top: 10px;
-  /*bottom: 10px;*/
-  right: 10px;
+  top: 10%;
   position: absolute;
-  width: 230px;
-  background-color: rgb(249, 247, 237);
+  width: 80%;
+  height: 5%;
+  left: 10%;
+  right: 10%;
+  background-color: #F5F3F3;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
+
 #control-pane > div {
   margin: 10px;
   overflow-x: auto;
 }
-.line {
-  clear: both;
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 12px 0 0 0;
-  border-bottom: 1px solid #aac789;
-  background: transparent;
-}
+
+
 h2, h3, h4 {
-  padding: 0;
+  padding-right: 50%;
   font-variant: small-caps;
 }
-.green {
-  color: #437356;
-}
+
 h2.underline {
-  color: #437356;
-  background: #f4f0e4;
+  color: #8B40DC;
+  background: #B3B1B1;
   margin: 0;
   border-radius: 2px;
-  padding: 8px 12px;
+  padding: 8px 50%;
   font-weight: 700;
 }
+
 .hidden {
   display: none;
   visibility: hidden;
@@ -61,7 +77,71 @@ input[type=range] {
   width: 160px;
 }
 
-.sigma-edge {
+.margin {
+  border-style: outset none outset none;
+}
+
+#info-node {
+  bottom: 0;
+  right: 10%;
+  left: 10%;
+  position: fixed;
+  width: 80%;
+  height: 20%;
+  background-color: #E6E6E6;
+  font-family: "Courier New", Courier, Monospace;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+#nome-info {
+  top: 15%;
+  left: 0;
+  height: 100%;
+  float: left;
+  position: absolute;
+}
+
+#informacoes {
+  top: 0;
+  left: 30%;
+  position: absolute;
+  height: 100%;
+  overflow: scroll;
+  background-color: #F2F2F2;
+}
+
+#filters  {
+  width: 80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#button-reset {
+  width: 20%;
+  position: absolute;
+  top: 0;
+  /*float: right;*/
+  right: 0%;
+}
+
+#degree {
+  position: absolute;
+  bottom: 21%;
+  right: 0;
+}
+
+.line {
+  clear: both;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 12px 0 0 0;
+  border-bottom: 1px solid #9F81F7;
+  background: transparent;
+}
+
+/*.sigma-edge {
   stroke: #14191C;
 }
 .sigma-node {
@@ -75,5 +155,16 @@ input[type=range] {
 .muted {
   fill-opacity: 0.1;
   stroke-opacity: 0.1;
+}*/
+
+/*#esconder {
+  height: 0;
+  display: block;
+  border: 3px solid #F3EDFA;
 }
 
+#esconder:hover {
+  height: 30%;
+  display: show;
+  transition: all 5s;
+}*/
